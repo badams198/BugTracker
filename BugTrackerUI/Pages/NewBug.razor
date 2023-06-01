@@ -11,5 +11,12 @@
 
 @code {
     public Bug AddBug { get; set; } = new Bug();
-
+    public IBugService[Inject];
+    public NavigationManager NavService[Inject];
+    private void HandleValidSubmit()  
+    {  
+        BugService.AddBug(); 
+        NavService.NavigationTo("");
+        EditForm.OnValidSubmit(HandleValidSubmit);
+    }  
 }
